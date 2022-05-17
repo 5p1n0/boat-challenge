@@ -5,6 +5,7 @@ const useCanvas = (draw) => {
 
   const canvasRef = useRef()
   
+  // Random point coordinates
   let x = Array(50).fill().map(() => random(125, 40))
   let y = Array(50).fill().map(() => random(125, 25))
   
@@ -14,16 +15,24 @@ const useCanvas = (draw) => {
     const context = canvas.getContext('2d')
     let frameCount = 0
     let animationFrameId
-    let canvasRow
-    let canvasNumber
+    let canvasTable, maxCanvasInCol, maxCanvasInRow
 
+    
+    
     const render = () => {
-      canvasRow = canvas.parentNode.getBoundingClientRect();
-      canvas.width = canvasRow.width
-      console.log(canvas.width)
-      canvasNumber = Math.floor(canvasRow.width / 125)
+      
+      // Canvas size setup
+      canvasTable = canvas.parentNode.getBoundingClientRect();
+      canvas.height = canvasTable.height
+      canvas.width = canvasTable.width
+      
+      // Max number of canvas in a row == Number of grid columns
+      maxCanvasInRow = Math.floor(canvasTable.width / 125)
+      // Max number of canvas in a column == Number of grid rows
+      maxCanvasInCol = Math.floor(canvasTable.height / 125)
+
       frameCount++
-      draw(context, frameCount, x, y, canvasNumber)
+      draw(context, frameCount, x, y, maxCanvasInRow, maxCanvasInCol)
       animationFrameId = window.requestAnimationFrame(render)
     }
 

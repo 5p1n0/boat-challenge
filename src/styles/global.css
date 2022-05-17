@@ -5,6 +5,7 @@ html {
 div {  
   margin: 0 auto 0 auto;
   max-width: 650px;
+  max-height: 850px;
   width: auto;
 }
 

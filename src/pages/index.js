@@ -5,7 +5,7 @@ import Iceberg from "../components/iceberg.js"
 
 const IndexPage = () => {
 
-  const draw = (context, frameCount, x, y, canvasNumber) => {
+  const draw = (context, frameCount, x, y, maxCanvasInRow, maxRows) => {
 
     let animationModifier = 4 * Math.sin(frameCount * 0.025)
     
@@ -13,23 +13,34 @@ const IndexPage = () => {
     context.fillStyle = '#d3cdc7'
     context.strokeStyle = 'white'
     context.lineWidth = '3'
+    let index = 0;
 
-    for ( 
-      let i = 0, offset = i * 125;
-      i < canvasNumber; 
-      ++i, offset = i * 125
+    for (
+      let r = 0, yOffset = 25;
+      r < maxRows;
+      ++r, yOffset = r * 125
     ) 
     {
-      context.beginPath()    
-      i == 0 ? context.moveTo(25, 25) : context.moveTo(offset, 25)
-      context.lineTo(x[i] * 0.6 + offset, y[i] * 0.4)
-      context.lineTo(x[i] + offset, y[i] + animationModifier)
-      context.lineTo(x[i] / 2 + offset + animationModifier, y[i] * 1.1)
-      context.lineTo(x[i] * 0.1 + offset + animationModifier, y[i] + animationModifier)
-      context.closePath()
-      context.fill()
-      context.stroke()
+      for (
+        let c = 0, xOffset = 25;
+        c < maxCanvasInRow;
+        ++c, xOffset = c * 125, index++
+      ) 
+      {
+        context.beginPath()
+        context.moveTo(xOffset, yOffset)
+        context.lineTo(x[index] * 0.6 + xOffset, y[index] * 0.4 + yOffset)
+        context.lineTo(x[index] + xOffset, y[index] + yOffset + animationModifier)
+        context.lineTo(x[index] / 2 + xOffset + animationModifier, y[index] * 1.1 + yOffset)
+        context.lineTo(x[index] * 0.1 + xOffset + animationModifier, y[index] + yOffset + animationModifier)
+        context.closePath()
+        context.fill()
+        context.stroke()
+      }
     }
+
+    
+
     
 
   }

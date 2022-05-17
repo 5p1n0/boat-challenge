@@ -8,7 +8,7 @@ const Iceberg = (props) => {
 
 
   return (
-    <canvas ref={canvasRef} height="150"/>
+    <canvas ref={canvasRef} />
   );
 };
 
