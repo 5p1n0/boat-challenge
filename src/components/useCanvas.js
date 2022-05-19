@@ -18,7 +18,7 @@ const useCanvas = (draw) => {
       canvasTable = canvas.parentNode.getBoundingClientRect();
       canvas.height = canvasTable.height
       canvas.width = canvasTable.width
-      console.log(window.devicePixelRatio)
+      frameCount++
       draw(context, frameCount, canvas.width)
       animationFrameId = window.requestAnimationFrame(render)
     }

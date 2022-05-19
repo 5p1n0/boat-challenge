@@ -13,12 +13,12 @@ const IndexPage = () => {
     context.strokeStyle = 'white'
     context.lineWidth = '3'
 
-    getLeftIcebergs(context, width)
-    getTopIcebergs(context, width)
-    getMiddleIcebergs(context, width)
-    getRightIcebers(context, width)
-    getBottomIcebergs(context, width)
-    getLowerBottomIcebergs(context, width)
+    getLeftIcebergs(context, width, frameCount)
+    getTopIcebergs(context, width, frameCount)
+    getMiddleIcebergs(context, width, frameCount)
+    getRightIcebers(context, width, frameCount)
+    getBottomIcebergs(context, width, frameCount)
+    getLowerBottomIcebergs(context, width, frameCount)
   }
 
   
