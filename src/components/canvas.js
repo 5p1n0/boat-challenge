@@ -1,9 +1,9 @@
 import React from "react"
 import useCanvas from "./useCanvas.js"
 
-const Iceberg = (props) => {
+const Canvas = (prop) => {
 
-  const {draw, ...rest} = props
+  const {draw} = prop
   const canvasRef = useCanvas(draw)
 
   return (
@@ -11,4 +11,4 @@ const Iceberg = (props) => {
   );
 };
 
-export default Iceberg;
+export default Canvas

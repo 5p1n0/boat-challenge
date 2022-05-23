@@ -1,6 +1,7 @@
-import { responsiveValue } from "./utils"
+import { responsiveValue, movement } from "./utils"
 
-export const getLeftIcebergs = (context, width, frameCount) => {
+
+export const drawLeftChunk = (context, width, frameCount) => {
 
   let animationDelta = Math.sin(frameCount * 0.025)
   let animationDeltaMod = Math.cos(frameCount * 0.025)
@@ -82,7 +83,7 @@ export const getLeftIcebergs = (context, width, frameCount) => {
 
 }
 
-export const getTopIcebergs = (context, width, frameCount) => {
+export const drawTopChunk = (context, width, frameCount) => {
 
   let animationDelta = Math.sin(frameCount * 0.025)
   let animationDeltaMod = Math.cos(frameCount * 0.025)
@@ -180,7 +181,7 @@ export const getTopIcebergs = (context, width, frameCount) => {
 
 }
 
-export const getMiddleIcebergs = (context, width, frameCount) => {
+export const drawMiddleChunk = (context, width, frameCount) => {
 
   let animationDelta = Math.sin(frameCount * 0.025)
   let animationDeltaMod = Math.cos(frameCount * 0.025)
@@ -244,7 +245,7 @@ export const getMiddleIcebergs = (context, width, frameCount) => {
 
 }
 
-export const getRightIcebers = (context, width, frameCount) => {
+export const drawRightChunk = (context, width, frameCount) => {
 
   let animationDelta = Math.sin(frameCount * 0.025)
   let animationDeltaMod = Math.cos(frameCount * 0.025)
@@ -291,7 +292,7 @@ export const getRightIcebers = (context, width, frameCount) => {
   context.stroke()
 }
 
-export const getBottomIcebergs = (context, width, frameCount) => {
+export const drawBottomChunk = (context, width, frameCount) => {
 
   let animationDelta = Math.sin(frameCount * 0.025)
   let animationDeltaMod = Math.cos(frameCount * 0.025)
@@ -371,7 +372,7 @@ export const getBottomIcebergs = (context, width, frameCount) => {
 
 }
 
-export const getLowerBottomIcebergs = (context, width, frameCount) => {
+export const drawLowerBottomChunk = (context, width, frameCount) => {
 
   let animationDelta = Math.sin(frameCount * 0.025)
   let animationDeltaMod = Math.cos(frameCount * 0.025)
@@ -424,4 +425,39 @@ export const getLowerBottomIcebergs = (context, width, frameCount) => {
   context.closePath()
   context.fill()
   context.stroke()
+}
+
+export const drawBoat = (context, width, frameCount) => {
+
+  let animationDelta = Math.sin(frameCount * 0.025)
+  let animationDeltaMod = Math.cos(frameCount * 0.025)
+
+  context.fillStyle = '#7f303c'
+  
+  context.beginPath()
+  context.moveTo(responsiveValue(width, 55) + movement.xDelta, 750 + movement.yDelta + animationDeltaMod * 2)
+  context.lineTo(responsiveValue(width, 86) + movement.xDelta, 800 + movement.yDelta + animationDeltaMod * 1)
+  context.lineTo(responsiveValue(width, 55) + movement.xDelta, 800 + movement.yDelta + animationDeltaMod * 3)
+  context.closePath()
+  context.fill()
+
+  context.beginPath()
+  context.moveTo(responsiveValue(width, 48) + movement.xDelta, 770 + movement.yDelta + animationDelta * 1)
+  context.lineTo(responsiveValue(width, 26) + movement.xDelta, 800 + movement.yDelta + animationDelta * 3)
+  context.lineTo(responsiveValue(width, 48) + movement.xDelta, 800 + movement.yDelta + animationDelta * 1)
+  context.closePath()
+  context.fill()
+
+  context.fillStyle = 'white'
+  context.strokeStyle= '#d3cdc7'
+
+  context.beginPath()
+  context.moveTo(responsiveValue(width, 15) + movement.xDelta, 810 + movement.yDelta)
+  context.lineTo(responsiveValue(width, 95) + movement.xDelta, 810 + movement.yDelta)
+  context.lineTo(responsiveValue(width, 86) + movement.xDelta, 825 + movement.yDelta)
+  context.lineTo(responsiveValue(width, 25) + movement.xDelta, 825 + movement.yDelta)
+  context.closePath()
+  context.fill()
+  context.stroke()
+
 }
