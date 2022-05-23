@@ -2,6 +2,10 @@ html {
   background-color: black;
 }
 
+canvas {
+  width: 100%;
+}
+
 div {  
   margin: 0 auto 0 auto;
   max-width: 650px;
