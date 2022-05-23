@@ -8,9 +8,8 @@
    Here's my progress so far:
     
    - [x] Raw iceberg animation
-   - [x] Randomly generate iceberg shapes
-   - [ ] Fill the sea with icebergs 
-   - [ ] Boat shape
-   - [ ] Boat movements
-   - [ ] Code cleanup
+   - [x] Fill the sea with icebergs 
+   - [x] Boat shape
+   - [x] Boat movements
+   - [x] Code cleanup
   
